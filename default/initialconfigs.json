@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1783938051249,
+    "description" : "",
+    "identifier" : "initialconfigs",
+    "lastModifiedTimestamp" : 1783938051249,
+    "name" : "initial_configs",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
