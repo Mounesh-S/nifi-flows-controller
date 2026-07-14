@@ -1,4 +1,14 @@
 {
+  "externalControllerServices" : {
+    "6f6283c2-52af-3b01-bdce-719416aa79b7" : {
+      "identifier" : "6f6283c2-52af-3b01-bdce-719416aa79b7",
+      "name" : "JsonRecordSetWriter"
+    },
+    "8632434d-d2c4-3a1d-a8de-33ad1923ca40" : {
+      "identifier" : "8632434d-d2c4-3a1d-a8de-33ad1923ca40",
+      "name" : "JsonTreeReader"
+    }
+  },
   "flow" : {
     "createdTimestamp" : 1784021264296,
     "description" : "",
@@ -7,5 +17,334 @@
     "name" : "data-validation",
     "versionCount" : 0
   },
-  "latest" : false
+  "flowContents" : {
+    "comments" : "",
+    "componentType" : "PROCESS_GROUP",
+    "connections" : [ {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "groupId" : "flow-contents-group",
+        "id" : "b14acc96-1f74-3f2b-925d-44b83d5237c0",
+        "name" : "validation-error-out",
+        "type" : "OUTPUT_PORT"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "3e526d8a-1ac6-3b71-bf6a-7ea00f0f6d08",
+      "labelIndex" : 1,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure", "invalid" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "4bcbca7f-2425-318f-9948-91fd1c49eb5a",
+        "name" : "ValidateRecord",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "groupId" : "flow-contents-group",
+        "id" : "673017fe-bb1f-39e0-8747-6fa5bcf4d04c",
+        "name" : "valid-data-out",
+        "type" : "OUTPUT_PORT"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "9b1c11e1-4c70-3677-8eba-e189d0108696",
+      "labelIndex" : 1,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "valid" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "4bcbca7f-2425-318f-9948-91fd1c49eb5a",
+        "name" : "ValidateRecord",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "4bcbca7f-2425-318f-9948-91fd1c49eb5a",
+        "name" : "ValidateRecord",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "eca647d5-df50-3e33-994a-f85b636442cf",
+      "labelIndex" : 1,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "" ],
+      "source" : {
+        "groupId" : "flow-contents-group",
+        "id" : "25d80d63-f400-3bdc-94a1-9e7ffa46d8c1",
+        "name" : "raw-data-in",
+        "type" : "INPUT_PORT"
+      },
+      "zIndex" : 0
+    } ],
+    "controllerServices" : [ ],
+    "defaultBackPressureDataSizeThreshold" : "1 GB",
+    "defaultBackPressureObjectThreshold" : 10000,
+    "defaultFlowFileExpiration" : "0 sec",
+    "executionEngine" : "INHERITED",
+    "externalControllerServiceReferences" : {
+      "6f6283c2-52af-3b01-bdce-719416aa79b7" : {
+        "identifier" : "6f6283c2-52af-3b01-bdce-719416aa79b7",
+        "name" : "JsonRecordSetWriter"
+      },
+      "8632434d-d2c4-3a1d-a8de-33ad1923ca40" : {
+        "identifier" : "8632434d-d2c4-3a1d-a8de-33ad1923ca40",
+        "name" : "JsonTreeReader"
+      }
+    },
+    "flowFileConcurrency" : "UNBOUNDED",
+    "flowFileOutboundPolicy" : "STREAM_WHEN_AVAILABLE",
+    "funnels" : [ ],
+    "identifier" : "flow-contents-group",
+    "inputPorts" : [ {
+      "allowRemoteAccess" : false,
+      "componentType" : "INPUT_PORT",
+      "concurrentlySchedulableTaskCount" : 1,
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "25d80d63-f400-3bdc-94a1-9e7ffa46d8c1",
+      "name" : "raw-data-in",
+      "portFunction" : "STANDARD",
+      "position" : {
+        "x" : 0.0,
+        "y" : 0.0
+      },
+      "scheduledState" : "ENABLED",
+      "type" : "INPUT_PORT"
+    } ],
+    "labels" : [ ],
+    "maxConcurrentTasks" : 1,
+    "name" : "06-Data-Validation",
+    "outputPorts" : [ {
+      "allowRemoteAccess" : false,
+      "componentType" : "OUTPUT_PORT",
+      "concurrentlySchedulableTaskCount" : 1,
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "60ab1126-8195-3734-8c92-453492792c09",
+      "name" : "invalid-data-out",
+      "portFunction" : "STANDARD",
+      "position" : {
+        "x" : 560.0,
+        "y" : 200.0
+      },
+      "scheduledState" : "ENABLED",
+      "type" : "OUTPUT_PORT"
+    }, {
+      "allowRemoteAccess" : false,
+      "componentType" : "OUTPUT_PORT",
+      "concurrentlySchedulableTaskCount" : 1,
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "673017fe-bb1f-39e0-8747-6fa5bcf4d04c",
+      "name" : "valid-data-out",
+      "portFunction" : "STANDARD",
+      "position" : {
+        "x" : 560.0,
+        "y" : 0.0
+      },
+      "scheduledState" : "ENABLED",
+      "type" : "OUTPUT_PORT"
+    }, {
+      "allowRemoteAccess" : false,
+      "componentType" : "OUTPUT_PORT",
+      "concurrentlySchedulableTaskCount" : 1,
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "b14acc96-1f74-3f2b-925d-44b83d5237c0",
+      "name" : "validation-error-out",
+      "portFunction" : "STANDARD",
+      "position" : {
+        "x" : 280.0,
+        "y" : 400.0
+      },
+      "scheduledState" : "ENABLED",
+      "type" : "OUTPUT_PORT"
+    } ],
+    "position" : {
+      "x" : 0.0,
+      "y" : 0.0
+    },
+    "processGroups" : [ ],
+    "processors" : [ {
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.10.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "4bcbca7f-2425-318f-9948-91fd1c49eb5a",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "ValidateRecord",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : 280.0,
+        "y" : 0.0
+      },
+      "properties" : {
+        "Force Types From Reader Schema" : "false",
+        "Schema Text" : "${avro.schema}",
+        "Maximum Validation Details Length" : "1024",
+        "Record Reader" : "8632434d-d2c4-3a1d-a8de-33ad1923ca40",
+        "Schema Access Strategy" : "reader-schema",
+        "Schema Name" : "${schema.name}",
+        "Allow Extra Fields" : "true",
+        "Strict Type Checking" : "false",
+        "Record Writer" : "6f6283c2-52af-3b01-bdce-719416aa79b7",
+        "Validation Details Attribute Name" : "validation.details"
+      },
+      "propertyDescriptors" : {
+        "Schema Branch" : {
+          "displayName" : "Schema Branch",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Schema Branch",
+          "sensitive" : false
+        },
+        "Force Types From Reader Schema" : {
+          "displayName" : "Force Types From Reader Schema",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Force Types From Reader Schema",
+          "sensitive" : false
+        },
+        "Schema Text" : {
+          "displayName" : "Schema Text",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Schema Text",
+          "sensitive" : false
+        },
+        "Maximum Validation Details Length" : {
+          "displayName" : "Maximum Validation Details Length",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Maximum Validation Details Length",
+          "sensitive" : false
+        },
+        "Record Writer for Invalid Records" : {
+          "displayName" : "Record Writer for Invalid Records",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "Record Writer for Invalid Records",
+          "sensitive" : false
+        },
+        "Record Reader" : {
+          "displayName" : "Record Reader",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "Record Reader",
+          "sensitive" : false
+        },
+        "Schema Registry" : {
+          "displayName" : "Schema Registry",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "Schema Registry",
+          "sensitive" : false
+        },
+        "Schema Access Strategy" : {
+          "displayName" : "Schema Access Strategy",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Schema Access Strategy",
+          "sensitive" : false
+        },
+        "Schema Name" : {
+          "displayName" : "Schema Name",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Schema Name",
+          "sensitive" : false
+        },
+        "Allow Extra Fields" : {
+          "displayName" : "Allow Extra Fields",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Allow Extra Fields",
+          "sensitive" : false
+        },
+        "Strict Type Checking" : {
+          "displayName" : "Strict Type Checking",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Strict Type Checking",
+          "sensitive" : false
+        },
+        "Record Writer" : {
+          "displayName" : "Record Writer",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "Record Writer",
+          "sensitive" : false
+        },
+        "Schema Version" : {
+          "displayName" : "Schema Version",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Schema Version",
+          "sensitive" : false
+        },
+        "Validation Details Attribute Name" : {
+          "displayName" : "Validation Details Attribute Name",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Validation Details Attribute Name",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.ValidateRecord",
+      "yieldDuration" : "1 sec"
+    } ],
+    "remoteProcessGroups" : [ ],
+    "scheduledState" : "ENABLED",
+    "statelessFlowTimeout" : "1 min"
+  },
+  "flowEncodingVersion" : "1.0",
+  "latest" : false,
+  "parameterContexts" : { },
+  "parameterProviders" : { },
+  "snapshotMetadata" : {
+    "author" : "admin",
+    "flowIdentifier" : "data-validation",
+    "timestamp" : 1784021265424
+  }
 }
