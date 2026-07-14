@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1784021219771,
+    "description" : "",
+    "identifier" : "sftp-connector",
+    "lastModifiedTimestamp" : 1784021219771,
+    "name" : "sftp-connector",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
