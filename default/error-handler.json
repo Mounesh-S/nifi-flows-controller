@@ -1,4 +1,5 @@
 {
+  "externalControllerServices" : { },
   "flow" : {
     "createdTimestamp" : 1784021284340,
     "description" : "",
@@ -7,5 +8,142 @@
     "name" : "error-handler",
     "versionCount" : 0
   },
-  "latest" : false
+  "flowContents" : {
+    "comments" : "",
+    "componentType" : "PROCESS_GROUP",
+    "connections" : [ {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "f18f107e-1e34-3a94-bc7a-e8182580e4bc",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "c5f8e312-4d7c-333b-8827-c26458b61964",
+      "labelIndex" : 1,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "" ],
+      "source" : {
+        "groupId" : "flow-contents-group",
+        "id" : "d5cf0e44-8b79-3d02-ab25-4f26a23a7c14",
+        "name" : "errors-in",
+        "type" : "INPUT_PORT"
+      },
+      "zIndex" : 0
+    } ],
+    "controllerServices" : [ ],
+    "defaultBackPressureDataSizeThreshold" : "1 GB",
+    "defaultBackPressureObjectThreshold" : 10000,
+    "defaultFlowFileExpiration" : "0 sec",
+    "executionEngine" : "INHERITED",
+    "externalControllerServiceReferences" : { },
+    "flowFileConcurrency" : "UNBOUNDED",
+    "flowFileOutboundPolicy" : "STREAM_WHEN_AVAILABLE",
+    "funnels" : [ ],
+    "identifier" : "flow-contents-group",
+    "inputPorts" : [ {
+      "allowRemoteAccess" : false,
+      "componentType" : "INPUT_PORT",
+      "concurrentlySchedulableTaskCount" : 1,
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "d5cf0e44-8b79-3d02-ab25-4f26a23a7c14",
+      "name" : "errors-in",
+      "portFunction" : "STANDARD",
+      "position" : {
+        "x" : 0.0,
+        "y" : 0.0
+      },
+      "scheduledState" : "ENABLED",
+      "type" : "INPUT_PORT"
+    } ],
+    "labels" : [ ],
+    "maxConcurrentTasks" : 1,
+    "name" : "09-Error-Handler",
+    "outputPorts" : [ ],
+    "position" : {
+      "x" : 0.0,
+      "y" : 0.0
+    },
+    "processGroups" : [ ],
+    "processors" : [ {
+      "autoTerminatedRelationships" : [ "success" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.10.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "f18f107e-1e34-3a94-bc7a-e8182580e4bc",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "LogMessage",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : 0.0,
+        "y" : 0.0
+      },
+      "properties" : {
+        "Log Message" : "ETL Pipeline Error for Tenant ${tenant_id}: ${tenant_error_message}",
+        "Log Level" : "error"
+      },
+      "propertyDescriptors" : {
+        "Log Message" : {
+          "displayName" : "Log Message",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log Message",
+          "sensitive" : false
+        },
+        "Log Level" : {
+          "displayName" : "Log Level",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log Level",
+          "sensitive" : false
+        },
+        "Log Prefix" : {
+          "displayName" : "Log Prefix",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log Prefix",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.LogMessage",
+      "yieldDuration" : "1 sec"
+    } ],
+    "remoteProcessGroups" : [ ],
+    "scheduledState" : "ENABLED",
+    "statelessFlowTimeout" : "1 min"
+  },
+  "flowEncodingVersion" : "1.0",
+  "latest" : false,
+  "parameterContexts" : { },
+  "parameterProviders" : { },
+  "snapshotMetadata" : {
+    "author" : "admin",
+    "flowIdentifier" : "error-handler",
+    "timestamp" : 1784021285538
+  }
 }
