@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1784021245090,
+    "description" : "",
+    "identifier" : "db-connector",
+    "lastModifiedTimestamp" : 1784021245090,
+    "name" : "db-connector",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
