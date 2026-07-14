@@ -1,4 +1,5 @@
 {
+  "externalControllerServices" : { },
   "flow" : {
     "createdTimestamp" : 1784021303235,
     "description" : "",
@@ -7,5 +8,304 @@
     "name" : "transform",
     "versionCount" : 0
   },
-  "latest" : false
+  "flowContents" : {
+    "comments" : "",
+    "componentType" : "PROCESS_GROUP",
+    "connections" : [ {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "fac8c729-85eb-3366-a2dc-006e62f047ce",
+        "name" : "ApplySchemaMapping",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "0f700e76-0e41-3adf-8a19-b9be0d6673e4",
+      "labelIndex" : 1,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "" ],
+      "source" : {
+        "groupId" : "flow-contents-group",
+        "id" : "c0aa6e31-4deb-347b-899a-d82042dba2e8",
+        "name" : "raw-data-in",
+        "type" : "INPUT_PORT"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "groupId" : "flow-contents-group",
+        "id" : "cba02cd6-64b7-381b-bbe9-7b532b237111",
+        "name" : "transformed-data-out",
+        "type" : "OUTPUT_PORT"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "430d29ae-8443-326d-a6d4-cc51ef1e608b",
+      "labelIndex" : 1,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "output stream" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "fac8c729-85eb-3366-a2dc-006e62f047ce",
+        "name" : "ApplySchemaMapping",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "groupId" : "flow-contents-group",
+        "id" : "69a7f0ac-94c3-3e90-bc1e-dd8ede1aae88",
+        "name" : "transform-error-out",
+        "type" : "OUTPUT_PORT"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "c4600035-74cd-3003-8dfb-bd641099f225",
+      "labelIndex" : 1,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "nonzero status" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "fac8c729-85eb-3366-a2dc-006e62f047ce",
+        "name" : "ApplySchemaMapping",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    } ],
+    "controllerServices" : [ ],
+    "defaultBackPressureDataSizeThreshold" : "1 GB",
+    "defaultBackPressureObjectThreshold" : 10000,
+    "defaultFlowFileExpiration" : "0 sec",
+    "executionEngine" : "INHERITED",
+    "externalControllerServiceReferences" : { },
+    "flowFileConcurrency" : "UNBOUNDED",
+    "flowFileOutboundPolicy" : "STREAM_WHEN_AVAILABLE",
+    "funnels" : [ ],
+    "identifier" : "flow-contents-group",
+    "inputPorts" : [ {
+      "allowRemoteAccess" : false,
+      "componentType" : "INPUT_PORT",
+      "concurrentlySchedulableTaskCount" : 1,
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "c0aa6e31-4deb-347b-899a-d82042dba2e8",
+      "name" : "raw-data-in",
+      "portFunction" : "STANDARD",
+      "position" : {
+        "x" : 0.0,
+        "y" : 0.0
+      },
+      "scheduledState" : "ENABLED",
+      "type" : "INPUT_PORT"
+    } ],
+    "labels" : [ ],
+    "maxConcurrentTasks" : 1,
+    "name" : "07-Transform",
+    "outputPorts" : [ {
+      "allowRemoteAccess" : false,
+      "componentType" : "OUTPUT_PORT",
+      "concurrentlySchedulableTaskCount" : 1,
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "69a7f0ac-94c3-3e90-bc1e-dd8ede1aae88",
+      "name" : "transform-error-out",
+      "portFunction" : "STANDARD",
+      "position" : {
+        "x" : 560.0,
+        "y" : 0.0
+      },
+      "scheduledState" : "ENABLED",
+      "type" : "OUTPUT_PORT"
+    }, {
+      "allowRemoteAccess" : false,
+      "componentType" : "OUTPUT_PORT",
+      "concurrentlySchedulableTaskCount" : 1,
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "cba02cd6-64b7-381b-bbe9-7b532b237111",
+      "name" : "transformed-data-out",
+      "portFunction" : "STANDARD",
+      "position" : {
+        "x" : 280.0,
+        "y" : 0.0
+      },
+      "scheduledState" : "ENABLED",
+      "type" : "OUTPUT_PORT"
+    } ],
+    "position" : {
+      "x" : 0.0,
+      "y" : 0.0
+    },
+    "processGroups" : [ ],
+    "processors" : [ {
+      "autoTerminatedRelationships" : [ "original" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.10.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "fac8c729-85eb-3366-a2dc-006e62f047ce",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "ApplySchemaMapping",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : 0.0,
+        "y" : 0.0
+      },
+      "properties" : {
+        "COLUMN_MAPPINGS" : "${column_mappings_json}",
+        "Command Arguments Strategy" : "Command Arguments Property",
+        "Command Path" : "python3",
+        "UPLOAD_TYPE" : "${upload_type}",
+        "Argument Delimiter" : ";",
+        "Ignore STDIN" : "false",
+        "Command Arguments" : "/opt/scripts/apply_mapping.py",
+        "BU_ID" : "${bu_id}",
+        "Max Attribute Length" : "256",
+        "TENANT_ID" : "${tenant_id}"
+      },
+      "propertyDescriptors" : {
+        "COLUMN_MAPPINGS" : {
+          "displayName" : "COLUMN_MAPPINGS",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "COLUMN_MAPPINGS",
+          "sensitive" : false
+        },
+        "Command Arguments Strategy" : {
+          "displayName" : "Command Arguments Strategy",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Command Arguments Strategy",
+          "sensitive" : false
+        },
+        "Working Directory" : {
+          "displayName" : "Working Directory",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Working Directory",
+          "sensitive" : false
+        },
+        "Command Path" : {
+          "displayName" : "Command Path",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Command Path",
+          "sensitive" : false
+        },
+        "UPLOAD_TYPE" : {
+          "displayName" : "UPLOAD_TYPE",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "UPLOAD_TYPE",
+          "sensitive" : false
+        },
+        "Argument Delimiter" : {
+          "displayName" : "Argument Delimiter",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Argument Delimiter",
+          "sensitive" : false
+        },
+        "Ignore STDIN" : {
+          "displayName" : "Ignore STDIN",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Ignore STDIN",
+          "sensitive" : false
+        },
+        "Command Arguments" : {
+          "displayName" : "Command Arguments",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Command Arguments",
+          "sensitive" : false
+        },
+        "BU_ID" : {
+          "displayName" : "BU_ID",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "BU_ID",
+          "sensitive" : false
+        },
+        "Max Attribute Length" : {
+          "displayName" : "Max Attribute Length",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Max Attribute Length",
+          "sensitive" : false
+        },
+        "Output MIME Type" : {
+          "displayName" : "Output MIME Type",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Output MIME Type",
+          "sensitive" : false
+        },
+        "Output Destination Attribute" : {
+          "displayName" : "Output Destination Attribute",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Output Destination Attribute",
+          "sensitive" : false
+        },
+        "TENANT_ID" : {
+          "displayName" : "TENANT_ID",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "TENANT_ID",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.ExecuteStreamCommand",
+      "yieldDuration" : "1 sec"
+    } ],
+    "remoteProcessGroups" : [ ],
+    "scheduledState" : "ENABLED",
+    "statelessFlowTimeout" : "1 min"
+  },
+  "flowEncodingVersion" : "1.0",
+  "latest" : false,
+  "parameterContexts" : { },
+  "parameterProviders" : { },
+  "snapshotMetadata" : {
+    "author" : "admin",
+    "flowIdentifier" : "transform",
+    "timestamp" : 1784021304371
+  }
 }
