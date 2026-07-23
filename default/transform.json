@@ -25,7 +25,7 @@
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "0f700e76-0e41-3adf-8a19-b9be0d6673e4",
+      "identifier" : "38ab70b6-2903-340e-ba78-81876e7a84f0",
       "labelIndex" : 1,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
@@ -133,8 +133,8 @@
       "name" : "transform-error-out",
       "portFunction" : "STANDARD",
       "position" : {
-        "x" : 560.0,
-        "y" : 0.0
+        "x" : 0.0,
+        "y" : 400.0
       },
       "scheduledState" : "ENABLED",
       "type" : "OUTPUT_PORT"
@@ -147,8 +147,8 @@
       "name" : "transformed-data-out",
       "portFunction" : "STANDARD",
       "position" : {
-        "x" : 280.0,
-        "y" : 0.0
+        "x" : 352.0,
+        "y" : 680.0
       },
       "scheduledState" : "ENABLED",
       "type" : "OUTPUT_PORT"
@@ -177,27 +177,23 @@
       "name" : "ApplySchemaMapping",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 0.0,
-        "y" : 0.0
+        "x" : 664.0,
+        "y" : 336.0
       },
       "properties" : {
-        "COLUMN_MAPPINGS" : "${column_mappings_json}",
+        "Max Attribute Length" : "256",
         "Command Arguments Strategy" : "Command Arguments Property",
         "Command Path" : "python3",
-        "UPLOAD_TYPE" : "${upload_type}",
         "Argument Delimiter" : ";",
         "Ignore STDIN" : "false",
-        "Command Arguments" : "/opt/scripts/apply_mapping.py",
-        "BU_ID" : "${bu_id}",
-        "Max Attribute Length" : "256",
-        "TENANT_ID" : "${tenant_id}"
+        "Command Arguments" : "/opt/nifi/scripts/apply_mapping.py;${column_mappings_json:base64Encode()};${upload_type}"
       },
       "propertyDescriptors" : {
-        "COLUMN_MAPPINGS" : {
-          "displayName" : "COLUMN_MAPPINGS",
-          "dynamic" : true,
+        "Max Attribute Length" : {
+          "displayName" : "Max Attribute Length",
+          "dynamic" : false,
           "identifiesControllerService" : false,
-          "name" : "COLUMN_MAPPINGS",
+          "name" : "Max Attribute Length",
           "sensitive" : false
         },
         "Command Arguments Strategy" : {
@@ -205,6 +201,13 @@
           "dynamic" : false,
           "identifiesControllerService" : false,
           "name" : "Command Arguments Strategy",
+          "sensitive" : false
+        },
+        "Output MIME Type" : {
+          "displayName" : "Output MIME Type",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Output MIME Type",
           "sensitive" : false
         },
         "Working Directory" : {
@@ -221,11 +224,11 @@
           "name" : "Command Path",
           "sensitive" : false
         },
-        "UPLOAD_TYPE" : {
-          "displayName" : "UPLOAD_TYPE",
-          "dynamic" : true,
+        "Output Destination Attribute" : {
+          "displayName" : "Output Destination Attribute",
+          "dynamic" : false,
           "identifiesControllerService" : false,
-          "name" : "UPLOAD_TYPE",
+          "name" : "Output Destination Attribute",
           "sensitive" : false
         },
         "Argument Delimiter" : {
@@ -247,41 +250,6 @@
           "dynamic" : false,
           "identifiesControllerService" : false,
           "name" : "Command Arguments",
-          "sensitive" : false
-        },
-        "BU_ID" : {
-          "displayName" : "BU_ID",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "BU_ID",
-          "sensitive" : false
-        },
-        "Max Attribute Length" : {
-          "displayName" : "Max Attribute Length",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Max Attribute Length",
-          "sensitive" : false
-        },
-        "Output MIME Type" : {
-          "displayName" : "Output MIME Type",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Output MIME Type",
-          "sensitive" : false
-        },
-        "Output Destination Attribute" : {
-          "displayName" : "Output Destination Attribute",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Output Destination Attribute",
-          "sensitive" : false
-        },
-        "TENANT_ID" : {
-          "displayName" : "TENANT_ID",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "TENANT_ID",
           "sensitive" : false
         }
       },
@@ -306,6 +274,6 @@
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "transform",
-    "timestamp" : 1784021304371
+    "timestamp" : 1784788124672
   }
 }
