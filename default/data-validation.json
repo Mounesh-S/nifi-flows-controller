@@ -39,7 +39,7 @@
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "failure", "invalid" ],
+      "selectedRelationships" : [ "failure" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
@@ -68,6 +68,34 @@
       "name" : "",
       "prioritizers" : [ ],
       "selectedRelationships" : [ "valid" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "4bcbca7f-2425-318f-9948-91fd1c49eb5a",
+        "name" : "ValidateRecord",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "groupId" : "flow-contents-group",
+        "id" : "60ab1126-8195-3734-8c92-453492792c09",
+        "name" : "invalid-data-out",
+        "type" : "OUTPUT_PORT"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "bcb17f6d-e796-39bb-b866-dd7028df3a83",
+      "labelIndex" : 1,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "invalid" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
@@ -151,8 +179,8 @@
       "name" : "invalid-data-out",
       "portFunction" : "STANDARD",
       "position" : {
-        "x" : 560.0,
-        "y" : 200.0
+        "x" : 0.0,
+        "y" : 400.0
       },
       "scheduledState" : "ENABLED",
       "type" : "OUTPUT_PORT"
@@ -165,8 +193,8 @@
       "name" : "valid-data-out",
       "portFunction" : "STANDARD",
       "position" : {
-        "x" : 560.0,
-        "y" : 0.0
+        "x" : 728.0,
+        "y" : 656.0
       },
       "scheduledState" : "ENABLED",
       "type" : "OUTPUT_PORT"
@@ -179,8 +207,8 @@
       "name" : "validation-error-out",
       "portFunction" : "STANDARD",
       "position" : {
-        "x" : 280.0,
-        "y" : 400.0
+        "x" : 0.0,
+        "y" : 800.0
       },
       "scheduledState" : "ENABLED",
       "type" : "OUTPUT_PORT"
@@ -209,8 +237,8 @@
       "name" : "ValidateRecord",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 280.0,
-        "y" : 0.0
+        "x" : 500.0,
+        "y" : 200.0
       },
       "properties" : {
         "Force Types From Reader Schema" : "false",
@@ -345,6 +373,6 @@
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "data-validation",
-    "timestamp" : 1784021265424
+    "timestamp" : 1784788112799
   }
 }
