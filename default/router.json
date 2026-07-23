@@ -46,6 +46,34 @@
       "componentType" : "CONNECTION",
       "destination" : {
         "groupId" : "flow-contents-group",
+        "id" : "90e302a7-b2f7-3c08-aecf-0efca28c00a2",
+        "name" : "error-out",
+        "type" : "OUTPUT_PORT"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "49456494-9834-39c1-b436-6fb888df9125",
+      "labelIndex" : 1,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "01f5d624-f43a-374d-b7b9-d57d9bf554bf",
+        "name" : "SetUnmatchedError",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "groupId" : "flow-contents-group",
         "id" : "24158e5c-1511-3beb-983b-443d53f3697f",
         "name" : "to-sftp",
         "type" : "OUTPUT_PORT"
@@ -123,6 +151,35 @@
         "type" : "INPUT_PORT"
       },
       "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "01f5d624-f43a-374d-b7b9-d57d9bf554bf",
+        "name" : "SetUnmatchedError",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "fe9b2607-9902-3d26-a0e9-ce00cf5fff92",
+      "labelIndex" : 1,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "unmatched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "24818179-aed7-3e39-ac4b-740cece512a7",
+        "name" : "RouteOnAttribute",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
     } ],
     "controllerServices" : [ ],
     "defaultBackPressureDataSizeThreshold" : "1 GB",
@@ -143,8 +200,8 @@
       "name" : "jobs-in",
       "portFunction" : "STANDARD",
       "position" : {
-        "x" : -280.0,
-        "y" : 136.0
+        "x" : 0.0,
+        "y" : 0.0
       },
       "scheduledState" : "ENABLED",
       "type" : "INPUT_PORT"
@@ -161,8 +218,8 @@
       "name" : "to-sftp",
       "portFunction" : "STANDARD",
       "position" : {
-        "x" : 328.0,
-        "y" : 128.0
+        "x" : 2112.0,
+        "y" : 288.0
       },
       "scheduledState" : "ENABLED",
       "type" : "OUTPUT_PORT"
@@ -175,8 +232,8 @@
       "name" : "to-api",
       "portFunction" : "STANDARD",
       "position" : {
-        "x" : 680.0,
-        "y" : -176.0
+        "x" : 2112.0,
+        "y" : 576.0
       },
       "scheduledState" : "ENABLED",
       "type" : "OUTPUT_PORT"
@@ -189,8 +246,22 @@
       "name" : "to-db",
       "portFunction" : "STANDARD",
       "position" : {
-        "x" : 616.0,
-        "y" : -8.0
+        "x" : 2136.0,
+        "y" : 8.0
+      },
+      "scheduledState" : "ENABLED",
+      "type" : "OUTPUT_PORT"
+    }, {
+      "allowRemoteAccess" : false,
+      "componentType" : "OUTPUT_PORT",
+      "concurrentlySchedulableTaskCount" : 1,
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "90e302a7-b2f7-3c08-aecf-0efca28c00a2",
+      "name" : "error-out",
+      "portFunction" : "STANDARD",
+      "position" : {
+        "x" : 1752.0,
+        "y" : -160.0
       },
       "scheduledState" : "ENABLED",
       "type" : "OUTPUT_PORT"
@@ -201,7 +272,80 @@
     },
     "processGroups" : [ ],
     "processors" : [ {
-      "autoTerminatedRelationships" : [ "unmatched" ],
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-update-attribute-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.10.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "01f5d624-f43a-374d-b7b9-d57d9bf554bf",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "SetUnmatchedError",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : 880.0,
+        "y" : -104.0
+      },
+      "properties" : {
+        "Store State" : "Do not store state",
+        "error.message" : "Router Error: Unknown config_type '${config_type}'",
+        "Cache Value Lookup Cache Size" : "100"
+      },
+      "propertyDescriptors" : {
+        "Delete Attributes Expression" : {
+          "displayName" : "Delete Attributes Expression",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Delete Attributes Expression",
+          "sensitive" : false
+        },
+        "Store State" : {
+          "displayName" : "Store State",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Store State",
+          "sensitive" : false
+        },
+        "error.message" : {
+          "displayName" : "error.message",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "error.message",
+          "sensitive" : false
+        },
+        "Cache Value Lookup Cache Size" : {
+          "displayName" : "Cache Value Lookup Cache Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Cache Value Lookup Cache Size",
+          "sensitive" : false
+        },
+        "Stateful Variables Initial Value" : {
+          "displayName" : "Stateful Variables Initial Value",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Stateful Variables Initial Value",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.attributes.UpdateAttribute",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -219,12 +363,12 @@
       "name" : "RouteOnAttribute",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -312.0,
-        "y" : -240.0
+        "x" : 552.0,
+        "y" : 504.0
       },
       "properties" : {
         "Routing Strategy" : "Route to Property name",
-        "route-db" : "${config_type:equals('DB')}",
+        "route-db" : "${config_type:equals('DATABASE')}",
         "route-sftp" : "${config_type:equals('SFTP')}",
         "route-api" : "${config_type:equals('API')}"
       },
@@ -279,6 +423,6 @@
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "router",
-    "timestamp" : 1784021181608
+    "timestamp" : 1784788066324
   }
 }
